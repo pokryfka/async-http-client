@@ -2673,10 +2673,11 @@ private final class TestTracer: TracingInstrument {
     Injector: InjectorProtocol {}
 
     final class TestSpan: Span {
-        let operationName: String
-        let kind: SpanKind
-        var status: SpanStatus?
-        let context: BaggageContext
+        private let operationName: String
+        private let kind: SpanKind
+        var context: BaggageContext
+
+        private(set) var status: SpanStatus?
         private(set) var isRecording = false
 
         var attributes: SpanAttributes = [:]
@@ -2692,6 +2693,10 @@ private final class TestTracer: TracingInstrument {
 
         func end(at timestamp: Timestamp) {
             self.endTimestamp = timestamp
+        }
+
+        func setStatus(_ status: SpanStatus) {
+            self.status = status
         }
 
         init(operationName: String, kind: SpanKind, startTimestamp: Timestamp, context: BaggageContext) {
