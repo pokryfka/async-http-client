@@ -26,8 +26,8 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-nio-extras.git", from: "1.3.0"),
         .package(url: "https://github.com/apple/swift-nio-transport-services.git", from: "1.5.1"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.4.0"),
-        .package(url: "https://github.com/slashmo/gsoc-swift-tracing.git", .branch("main")),
-        .package(url: "https://github.com/slashmo/gsoc-swift-baggage-context.git", from: "0.2.0"),
+        .package(url: "https://github.com/slashmo/gsoc-swift-baggage-context.git", .upToNextMinor(from: "0.3.0")),
+        .package(url: "https://github.com/slashmo/gsoc-swift-tracing.git", .revision("fe80d764ad225b1dfd06dcb57d08b5e3485662f9")),
     ],
     targets: [
         .target(
